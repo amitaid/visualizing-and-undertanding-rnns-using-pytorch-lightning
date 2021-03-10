@@ -3,7 +3,7 @@ import torch
 from torch.nn import Linear, Dropout, Embedding, Module
 
 import dataloader
-from config import DEVICE
+from config import DEVICE, MODEL_PATH
 from .grux import GRUx
 from .lstmx import LSTMx
 from .rnnx import RNNx
@@ -87,12 +87,12 @@ class CharRNN(Module):
 
     def save_to_file(self):
         self._forward_hooks.clear()  # must be empty to be pickle-able
-        with open(f"models/{self.name()}.pkl", "wb") as f:
+        with open(f"{MODEL_PATH}{self.name()}.pkl", "wb") as f:
             torch.save(self, f)
 
     @staticmethod
     def load_from_file(model_name, nr_layers, hidden_size):
-        with open(f"models/{model_name}-{nr_layers}-{hidden_size}.pkl", "rb") as f:
+        with open(f"{MODEL_PATH}{model_name}-{nr_layers}-{hidden_size}.pkl", "rb") as f:
             n = torch.load(f)
             net = CharRNN(n.vocab_size, n.hidden_size, n.embedding_dim, n.model_name, n.dropout.p, n.n_layers, DEVICE)
             net.load_state_dict(n.state_dict())
