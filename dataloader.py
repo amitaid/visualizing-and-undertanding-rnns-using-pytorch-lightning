@@ -28,7 +28,7 @@ def load(file_name, device, splits=(0, 80, 90, 100), batch_size=100, seq_len=100
     t = encode(data, printable_id, device)
     splits = [len(data) * i // 100 for i in splits]
     loaders = [DataLoader(ContStrDataSet(t, splits[i], splits[i + 1], seq_len, unique=unique),
-                          batch_size=batch_size, shuffle=not bool(splits[i]), num_workers=4) for i in range(3)]
+                          batch_size=batch_size, shuffle=not bool(splits[i])) for i in range(3)]
     return loaders, printable_id
 
 
