@@ -1,11 +1,11 @@
 import torch
 
 # linux = https://cs.stanford.edu/people/karpathy/char-rnn/
-_FILE_NAMES = ["warandpeace", "shakespeare"]
+_FILE_NAMES = ["warandpeace"] #, "shakespeare"]
 FILE_NAME = _FILE_NAMES[0]
 FILE_PATH = f"data/{FILE_NAME}.txt"
 DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
-N_LAYERS = 3
+N_LAYERS = 2
 SEQ_LEN = 70
 HIDDEN_SIZE = 32
 BATCH_SIZE = 128

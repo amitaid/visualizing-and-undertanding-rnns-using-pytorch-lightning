@@ -14,7 +14,7 @@ for MODEL_NAME in ["rnn", "gru", "lstm"]:
             lightning = Lightning(net, LR)
             esc = pl.callbacks.EarlyStopping(monitor='val_acc', min_delta=0.00, patience=3, mode="max")
             trainer = pl.Trainer(gpus=int(DEVICE == "cuda"), precision=PRECISION, gradient_clip_val=CLIP,
-                                 max_epochs=MAX_EPOCHS, progress_bar_refresh_rate=10, early_stop_callback=esc,
+                                 max_epochs=MAX_EPOCHS, progress_bar_refresh_rate=10,
                                  benchmark=True, fast_dev_run=False)
             trainer.fit(lightning, train_dataloader=trl, val_dataloaders=val)
             net.save_to_file()
