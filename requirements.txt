@@ -1,4 +1,5 @@
 torch
+torchtext==0.8.0
 pytorch-lightning==0.9.0
 # for 16 bit precision: apex https://pytorch-lightning.readthedocs.io/en/latest/apex.html
 numpy==1.18.0 # only for charrnn_example
