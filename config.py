@@ -1,7 +1,7 @@
 import torch
 
 # linux = https://cs.stanford.edu/people/karpathy/char-rnn/
-_FILE_NAMES = ["warandpeace"] #, "shakespeare"]
+_FILE_NAMES = ["shakespeare"] #, "warandpeace"]
 FILE_NAME = _FILE_NAMES[0]
 FILE_PATH = f"data/{FILE_NAME}.txt"
 MODEL_PATH = "/content/gdrive/MyDrive/DL-project/" #"models/"
