@@ -30,6 +30,7 @@ def _plot_gate(gates):
             plt.scatter(l, r, rad, c, alpha=1.0 / num_layers)
         ax.plot(np.linspace(0, 1), np.linspace(1, 0))  # diagonal
         plt.draw()  # update plot
+    fig.tight_layout()
     plt.show()
 
 
@@ -49,4 +50,4 @@ def visualize_cell(cell, x, vis_dir="visualization"):
     char_cell = {'cell_size': HIDDEN_SIZE, 'seq': ''.join(x)}
     char_cell.update({f"cell_layer_{layer + 1}": cell[layer].tolist() for layer in range(len(cell))})
     with open(path.join(vis_dir, 'char_cell.json'), 'w') as json_file:
-        json.dump(char_cell, json_file)
+        json.dump(char_cell, json_file, indent=4)

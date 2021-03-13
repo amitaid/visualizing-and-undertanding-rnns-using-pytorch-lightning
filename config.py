@@ -4,7 +4,7 @@ import torch
 _FILE_NAMES = ["shakespeare"] #, "warandpeace"]
 FILE_NAME = _FILE_NAMES[0]
 FILE_PATH = f"data/{FILE_NAME}.txt"
-MODEL_PATH = "/content/gdrive/MyDrive/DL-project/" #"models/"
+MODEL_PATH = "models/" #"/content/gdrive/MyDrive/DL-project/"
 DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
 N_LAYERS = 2
 SEQ_LEN = 70
